@@ -31,6 +31,39 @@ void printf_queue(Queue_circular* Queue)
 	printf("/n");
 
 }
+
+bool isEmpty(Queue_circular* Queue)
+{
+	bool retval = false;
+	if((Queue->front == Queue->rear) && (Queue->size == 0))
+	{
+		retval = true;
+	}
+	return retval;
+}
+bool IsFull(Queue_circular* Queue)
+{
+	bool retval = false;
+	if((Queue->front == Queue->rear) && (Queue->size == ELEMENT_QUEUE))
+	{
+		retval = true;
+
+	}
+	return retval;
+	
+}
+void Queue_push(Queue_circular* Queue)
+{
+	bool a = isEmpty(Queue);
+	if(!a)
+	{
+		
+		Queue->front = (Queue->front + 1) % ELEMENT_QUEUE;
+		Queue->size++;
+
+	}
+}
+
 int main()
 {
 	return 0;
