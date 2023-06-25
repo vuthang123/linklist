@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 #define ELEMENT_QUEUE 100
 
 typedef uint32_t Type_queue; 
@@ -20,7 +20,7 @@ void printf_queue(Queue_circular* Queue)
 
 {
 	uint32_t index = Queue->front;
-	uint32_t count = 0
+	uint32_t count = 0;
 
 	while(index < Queue->size)
 	{
@@ -52,12 +52,12 @@ bool IsFull(Queue_circular* Queue)
 	
 }
 
-void Queue_push(Queue_circular* Queue)
+void Queue_push(Queue_circular* Queue,uint32_t data)
 {
 	bool a = isEmpty(Queue);
 	if(!a)
 	{
-		
+		Queue->Queue[Queue->rear] = data;
         Queue->rear= (Queue->rear + 1) % ELEMENT_QUEUE;
 		Queue->size++;
 
@@ -65,7 +65,7 @@ void Queue_push(Queue_circular* Queue)
 }
 void Queue_pop(Queue_circular* Queue)
 {
-	bool a = isEmpty(Queue)
+	bool a = isEmpty(Queue);
 	if (!a)
 	{
 		Queue->front = (Queue->front + 1) % ELEMENT_QUEUE;
@@ -75,5 +75,9 @@ void Queue_pop(Queue_circular* Queue)
 }
 int main()
 {
+	Queue_circular queue;
+	Queue_push(&queue,1);
+	Queue_push(&queue,1);
+	Queue_push(&queue,1);
 	return 0;
 }
