@@ -51,14 +51,25 @@ bool IsFull(Queue_circular* Queue)
 	return retval;
 	
 }
+
 void Queue_push(Queue_circular* Queue)
 {
 	bool a = isEmpty(Queue);
 	if(!a)
 	{
 		
-		Queue->front = (Queue->front + 1) % ELEMENT_QUEUE;
+        Queue->rear= (Queue->rear + 1) % ELEMENT_QUEUE;
 		Queue->size++;
+
+	}
+}
+void Queue_pop(Queue_circular* Queue)
+{
+	bool a = isEmpty(Queue)
+	if (!a)
+	{
+		Queue->front = (Queue->front + 1) % ELEMENT_QUEUE;
+		Queue->size--;
 
 	}
 }
