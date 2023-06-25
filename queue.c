@@ -31,6 +31,7 @@ void printf_queue(Queue_circular* Queue)
 	printf("/n");
 
 }
+
 bool isEmpty(Queue_circular* Queue)
 {
 	bool retval = false;
@@ -62,6 +63,7 @@ void Queue_push(Queue_circular* Queue)
 
 	}
 }
+
 int main()
 {
 	return 0;
